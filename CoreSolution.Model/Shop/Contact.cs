@@ -12,7 +12,7 @@ namespace CoreSolution.Model.Shop
         public string Email { set; get; }
         public string PhoneNumber { set; get; }
         public string Message { set; get; }
-        public Status Status { set; get; }
+        public Status Status { set; get; } 
 
     }
 }

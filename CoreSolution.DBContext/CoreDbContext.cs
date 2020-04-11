@@ -1,6 +1,7 @@
 ﻿using CoreSolution.Model.Configurations;
+using CoreSolution.Model.Configurations.Shop;
 using CoreSolution.Model.Shop;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Text;
 
 namespace CoreSolution.DBContext
 {
-    public class CoreDbContext : DbContext
+    public class CoreDbContext : DbContext //IdentityDbContext<AppUser, AppRole, Guid>
     {
         public CoreDbContext(DbContextOptions options) : base(options)
         {
@@ -19,7 +20,6 @@ namespace CoreSolution.DBContext
         {
             //Configure using Fluent API
             modelBuilder.ApplyConfiguration(new AppConfigConfiguration());
-
             
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
             modelBuilder.ApplyConfiguration(new CategoryConfiguration());
@@ -33,6 +33,15 @@ namespace CoreSolution.DBContext
             modelBuilder.ApplyConfiguration(new PromotionConfiguration());
             modelBuilder.ApplyConfiguration(new TransactionConfiguration());
             modelBuilder.ApplyConfiguration(new ContactConfiguration());
+
+            modelBuilder.ApplyConfiguration(new AppUserConfiguration());
+            modelBuilder.ApplyConfiguration(new AppRoleConfiguration());
+
+            modelBuilder.Entity<IdentityUserClaim<Guid>>().ToTable("AppUserClaims");
+            modelBuilder.Entity<IdentityUserRole<Guid>>().ToTable("AppUserRoles").HasKey(x => new { x.UserId, x.RoleId });
+            modelBuilder.Entity<IdentityUserLogin<Guid>>().ToTable("AppUserLogins").HasKey(x => x.UserId);
+            modelBuilder.Entity<IdentityRoleClaim<Guid>>().ToTable("AppRoleClaims");
+            modelBuilder.Entity<IdentityUserToken<Guid>>().ToTable("AppUserTokens").HasKey(x => x.UserId);
         }
 
         public DbSet<AppConfig> AppConfigs { set; get; }

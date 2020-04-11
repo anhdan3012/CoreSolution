@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace CoreSolution.Model.Configurations
+namespace CoreSolution.Model.Configurations.Shop
 {
     public class OrderConfiguration : IEntityTypeConfiguration<Order>
     {
@@ -20,6 +20,7 @@ namespace CoreSolution.Model.Configurations
             builder.Property(x => x.ShipAddress).IsRequired().HasMaxLength(200);
             builder.Property(x => x.ShipName).IsRequired().HasMaxLength(200);
             builder.Property(x => x.ShipPhoneNumber).IsRequired().HasMaxLength(200);
+            builder.HasOne(x => x.AppUser).WithMany(x => x.Orders).HasForeignKey(x => x.UserId);
         }
     }
 }

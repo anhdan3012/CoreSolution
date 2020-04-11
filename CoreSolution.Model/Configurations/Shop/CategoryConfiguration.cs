@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace CoreSolution.Model.Configurations
+namespace CoreSolution.Model.Configurations.Shop
 {
     public class CategoryConfiguration : IEntityTypeConfiguration<Category>
     {

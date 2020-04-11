@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace CoreSolution.Model.Configurations
+namespace CoreSolution.Model.Configurations.Shop
 {
     public class TransactionConfiguration : IEntityTypeConfiguration<Transaction>
     {
@@ -15,6 +15,7 @@ namespace CoreSolution.Model.Configurations
 
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Id).UseIdentityColumn();
+            builder.HasOne(x => x.AppUser).WithMany(x => x.Transactions).HasForeignKey(x => x.UserId);
         }
     }
 }
