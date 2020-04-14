@@ -1,10 +1,9 @@
-﻿using CoreSolution.Model.Shop;
+﻿using CoreSolution.Models.Shop;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
-namespace CoreSolution.Model.Models
+namespace CoreSolution.Models.Entities
 {
     public class AppUser : IdentityUser<Guid>
     {

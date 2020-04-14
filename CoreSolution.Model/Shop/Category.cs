@@ -1,9 +1,9 @@
-﻿using CoreSolution.Model.Enums;
+﻿using CoreSolution.Models.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace CoreSolution.Model.Shop
+namespace CoreSolution.Models.Shop
 {
     public class Category
     {
@@ -12,7 +12,7 @@ namespace CoreSolution.Model.Shop
         public bool IsShowOnHome { set; get; }
         public int? ParentId { set; get; }
         public Status Status { set; get; }
-         
+
         public List<ProductInCategory> ProductInCategories { set; get; }
         public List<CategoryTranslation> CategoryTranslations { set; get; }
     }

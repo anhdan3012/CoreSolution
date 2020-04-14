@@ -1,9 +1,9 @@
-﻿using CoreSolution.Model.Enums;
+﻿using CoreSolution.Models.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace CoreSolution.Model.Shop
+namespace CoreSolution.Models.Shop
 {
     public class Contact
     {
@@ -12,7 +12,7 @@ namespace CoreSolution.Model.Shop
         public string Email { set; get; }
         public string PhoneNumber { set; get; }
         public string Message { set; get; }
-        public Status Status { set; get; } 
+        public Status Status { set; get; }
 
     }
 }

@@ -1,9 +1,8 @@
-﻿using CoreSolution.Model.Enums;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace CoreSolution.Model.Shop
+namespace CoreSolution.Models.Shop
 {
     public class OrderDetail
     {

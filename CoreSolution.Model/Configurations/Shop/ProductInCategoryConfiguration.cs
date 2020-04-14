@@ -1,11 +1,11 @@
-﻿using CoreSolution.Model.Shop;
+﻿using CoreSolution.Models.Shop;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace CoreSolution.Model.Configurations.Shop
+namespace CoreSolution.Models.Configurations.Shop
 {
     public class ProductInCategoryConfiguration : IEntityTypeConfiguration<ProductInCategory>
     {
@@ -13,7 +13,7 @@ namespace CoreSolution.Model.Configurations.Shop
         {
             builder.ToTable("ProductInCategories");
 
-            builder.HasKey(x => new { x.CategoryId, x.ProductId }); 
+            builder.HasKey(x => new { x.CategoryId, x.ProductId });
             builder.HasOne(x => x.Product).WithMany(pc => pc.ProductInCategories)
                 .HasForeignKey(pc => pc.ProductId);
             builder.HasOne(x => x.Category).WithMany(pc => pc.ProductInCategories)

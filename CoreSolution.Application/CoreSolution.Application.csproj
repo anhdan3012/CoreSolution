@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="System\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CoreSolution.Common\CoreSolution.Common.csproj" />
+    <ProjectReference Include="..\CoreSolution.DBContext\CoreSolution.DBContext.csproj" />
+    <ProjectReference Include="..\CoreSolution.Model\CoreSolution.Models.csproj" />
+    <ProjectReference Include="..\CoreSolution.ViewModels\CoreSolution.ViewModels.csproj" />
+  </ItemGroup>
+
+</Project>

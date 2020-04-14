@@ -1,12 +1,12 @@
-﻿using CoreSolution.Model.Enums;
-using CoreSolution.Model.Shop;
+﻿using CoreSolution.Models.Enums;
+using CoreSolution.Models.Shop;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace CoreSolution.Model.Configurations.Shop
+namespace CoreSolution.Models.Configurations.Shop
 {
     public class CategoryConfiguration : IEntityTypeConfiguration<Category>
     {

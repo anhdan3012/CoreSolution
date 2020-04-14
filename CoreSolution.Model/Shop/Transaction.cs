@@ -1,10 +1,10 @@
-﻿using CoreSolution.Model.Enums;
-using CoreSolution.Model.Models;
+﻿using CoreSolution.Models.Entities;
+using CoreSolution.Models.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace CoreSolution.Model.Shop
+namespace CoreSolution.Models.Shop
 {
     public class Transaction
     {

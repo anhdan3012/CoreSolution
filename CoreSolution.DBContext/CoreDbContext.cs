@@ -1,6 +1,6 @@
-﻿using CoreSolution.Model.Configurations;
-using CoreSolution.Model.Configurations.Shop;
-using CoreSolution.Model.Shop;
+﻿using CoreSolution.Models.Configurations.Entities;
+using CoreSolution.Models.Configurations.Shop;
+using CoreSolution.Models.Shop;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System;

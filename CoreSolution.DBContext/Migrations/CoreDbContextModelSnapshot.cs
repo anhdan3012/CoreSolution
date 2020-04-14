@@ -19,7 +19,7 @@ namespace CoreSolution.DBContext.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("CoreSolution.Model.Models.AppRole", b =>
+            modelBuilder.Entity("CoreSolution.Models.Entities.AppRole", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -44,7 +44,7 @@ namespace CoreSolution.DBContext.Migrations
                     b.ToTable("AppRoles");
                 });
 
-            modelBuilder.Entity("CoreSolution.Model.Models.AppUser", b =>
+            modelBuilder.Entity("CoreSolution.Models.Entities.AppUser", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -110,7 +110,7 @@ namespace CoreSolution.DBContext.Migrations
                     b.ToTable("AppUsers");
                 });
 
-            modelBuilder.Entity("CoreSolution.Model.Shop.AppConfig", b =>
+            modelBuilder.Entity("CoreSolution.Models.Shop.AppConfig", b =>
                 {
                     b.Property<string>("Key")
                         .HasColumnType("nvarchar(450)");
@@ -124,7 +124,7 @@ namespace CoreSolution.DBContext.Migrations
                     b.ToTable("AppConfigs");
                 });
 
-            modelBuilder.Entity("CoreSolution.Model.Shop.Cart", b =>
+            modelBuilder.Entity("CoreSolution.Models.Shop.Cart", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -154,7 +154,7 @@ namespace CoreSolution.DBContext.Migrations
                     b.ToTable("Carts");
                 });
 
-            modelBuilder.Entity("CoreSolution.Model.Shop.Category", b =>
+            modelBuilder.Entity("CoreSolution.Models.Shop.Category", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -182,7 +182,7 @@ namespace CoreSolution.DBContext.Migrations
                     b.ToTable("Categories");
                 });
 
-            modelBuilder.Entity("CoreSolution.Model.Shop.CategoryTranslation", b =>
+            modelBuilder.Entity("CoreSolution.Models.Shop.CategoryTranslation", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -227,7 +227,7 @@ namespace CoreSolution.DBContext.Migrations
                     b.ToTable("CategoryTranslations");
                 });
 
-            modelBuilder.Entity("CoreSolution.Model.Shop.Contact", b =>
+            modelBuilder.Entity("CoreSolution.Models.Shop.Contact", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -263,7 +263,7 @@ namespace CoreSolution.DBContext.Migrations
                     b.ToTable("Contacts");
                 });
 
-            modelBuilder.Entity("CoreSolution.Model.Shop.Language", b =>
+            modelBuilder.Entity("CoreSolution.Models.Shop.Language", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("varchar(5)")
@@ -283,7 +283,7 @@ namespace CoreSolution.DBContext.Migrations
                     b.ToTable("Languages");
                 });
 
-            modelBuilder.Entity("CoreSolution.Model.Shop.Order", b =>
+            modelBuilder.Entity("CoreSolution.Models.Shop.Order", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -295,7 +295,7 @@ namespace CoreSolution.DBContext.Migrations
                     b.Property<DateTime>("OrderDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2020, 4, 9, 14, 49, 2, 604, DateTimeKind.Local).AddTicks(6167));
+                        .HasDefaultValue(new DateTime(2020, 4, 14, 11, 20, 2, 786, DateTimeKind.Local).AddTicks(6473));
 
                     b.Property<string>("ShipAddress")
                         .IsRequired()
@@ -331,7 +331,7 @@ namespace CoreSolution.DBContext.Migrations
                     b.ToTable("Orders");
                 });
 
-            modelBuilder.Entity("CoreSolution.Model.Shop.OrderDetail", b =>
+            modelBuilder.Entity("CoreSolution.Models.Shop.OrderDetail", b =>
                 {
                     b.Property<int>("OrderId")
                         .HasColumnType("int");
@@ -352,7 +352,7 @@ namespace CoreSolution.DBContext.Migrations
                     b.ToTable("OrderDetails");
                 });
 
-            modelBuilder.Entity("CoreSolution.Model.Shop.Product", b =>
+            modelBuilder.Entity("CoreSolution.Models.Shop.Product", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -385,7 +385,7 @@ namespace CoreSolution.DBContext.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("CoreSolution.Model.Shop.ProductInCategory", b =>
+            modelBuilder.Entity("CoreSolution.Models.Shop.ProductInCategory", b =>
                 {
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
@@ -400,7 +400,7 @@ namespace CoreSolution.DBContext.Migrations
                     b.ToTable("ProductInCategories");
                 });
 
-            modelBuilder.Entity("CoreSolution.Model.Shop.ProductTranslation", b =>
+            modelBuilder.Entity("CoreSolution.Models.Shop.ProductTranslation", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -450,7 +450,7 @@ namespace CoreSolution.DBContext.Migrations
                     b.ToTable("ProductTranslations");
                 });
 
-            modelBuilder.Entity("CoreSolution.Model.Shop.Promotion", b =>
+            modelBuilder.Entity("CoreSolution.Models.Shop.Promotion", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -492,7 +492,7 @@ namespace CoreSolution.DBContext.Migrations
                     b.ToTable("Promotions");
                 });
 
-            modelBuilder.Entity("CoreSolution.Model.Shop.Transaction", b =>
+            modelBuilder.Entity("CoreSolution.Models.Shop.Transaction", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -630,93 +630,93 @@ namespace CoreSolution.DBContext.Migrations
                     b.ToTable("AppUserTokens");
                 });
 
-            modelBuilder.Entity("CoreSolution.Model.Shop.Cart", b =>
+            modelBuilder.Entity("CoreSolution.Models.Shop.Cart", b =>
                 {
-                    b.HasOne("CoreSolution.Model.Shop.Product", "Product")
+                    b.HasOne("CoreSolution.Models.Shop.Product", "Product")
                         .WithMany("Carts")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("CoreSolution.Model.Models.AppUser", "AppUser")
+                    b.HasOne("CoreSolution.Models.Entities.AppUser", "AppUser")
                         .WithMany("Carts")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("CoreSolution.Model.Shop.CategoryTranslation", b =>
+            modelBuilder.Entity("CoreSolution.Models.Shop.CategoryTranslation", b =>
                 {
-                    b.HasOne("CoreSolution.Model.Shop.Category", "Category")
+                    b.HasOne("CoreSolution.Models.Shop.Category", "Category")
                         .WithMany("CategoryTranslations")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("CoreSolution.Model.Shop.Language", "Language")
+                    b.HasOne("CoreSolution.Models.Shop.Language", "Language")
                         .WithMany("CategoryTranslations")
                         .HasForeignKey("LanguageId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("CoreSolution.Model.Shop.Order", b =>
+            modelBuilder.Entity("CoreSolution.Models.Shop.Order", b =>
                 {
-                    b.HasOne("CoreSolution.Model.Models.AppUser", "AppUser")
+                    b.HasOne("CoreSolution.Models.Entities.AppUser", "AppUser")
                         .WithMany("Orders")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("CoreSolution.Model.Shop.OrderDetail", b =>
+            modelBuilder.Entity("CoreSolution.Models.Shop.OrderDetail", b =>
                 {
-                    b.HasOne("CoreSolution.Model.Shop.Order", "Order")
+                    b.HasOne("CoreSolution.Models.Shop.Order", "Order")
                         .WithMany("OrderDetails")
                         .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("CoreSolution.Model.Shop.Product", "Product")
+                    b.HasOne("CoreSolution.Models.Shop.Product", "Product")
                         .WithMany("OrderDetails")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("CoreSolution.Model.Shop.ProductInCategory", b =>
+            modelBuilder.Entity("CoreSolution.Models.Shop.ProductInCategory", b =>
                 {
-                    b.HasOne("CoreSolution.Model.Shop.Category", "Category")
+                    b.HasOne("CoreSolution.Models.Shop.Category", "Category")
                         .WithMany("ProductInCategories")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("CoreSolution.Model.Shop.Product", "Product")
+                    b.HasOne("CoreSolution.Models.Shop.Product", "Product")
                         .WithMany("ProductInCategories")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("CoreSolution.Model.Shop.ProductTranslation", b =>
+            modelBuilder.Entity("CoreSolution.Models.Shop.ProductTranslation", b =>
                 {
-                    b.HasOne("CoreSolution.Model.Shop.Language", "Language")
+                    b.HasOne("CoreSolution.Models.Shop.Language", "Language")
                         .WithMany("ProductTranslations")
                         .HasForeignKey("LanguageId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("CoreSolution.Model.Shop.Product", "Product")
+                    b.HasOne("CoreSolution.Models.Shop.Product", "Product")
                         .WithMany("ProductTranslations")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("CoreSolution.Model.Shop.Transaction", b =>
+            modelBuilder.Entity("CoreSolution.Models.Shop.Transaction", b =>
                 {
-                    b.HasOne("CoreSolution.Model.Models.AppUser", "AppUser")
+                    b.HasOne("CoreSolution.Models.Entities.AppUser", "AppUser")
                         .WithMany("Transactions")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)

@@ -1,11 +1,11 @@
-﻿using CoreSolution.Model.Models;
+﻿using CoreSolution.Models.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace CoreSolution.Model.Configurations
+namespace CoreSolution.Models.Configurations.Entities
 {
     public class AppUserConfiguration : IEntityTypeConfiguration<AppUser>
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CoreSolution.Model.Enums
+namespace CoreSolution.Models.Enums
 {
     public enum Status
     {
