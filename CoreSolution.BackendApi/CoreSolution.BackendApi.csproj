@@ -1,20 +1,22 @@
-<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
-    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.5.0" />
-    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.5.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.3" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.3.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CoreSolution.Common\CoreSolution.Common.csproj" />
+    <ProjectReference Include="..\CoreSolution.Application\CoreSolution.Application.csproj" />
     <ProjectReference Include="..\CoreSolution.DBContext\CoreSolution.DBContext.csproj" />
     <ProjectReference Include="..\CoreSolution.Model\CoreSolution.Models.csproj" />
     <ProjectReference Include="..\CoreSolution.ViewModels\CoreSolution.ViewModels.csproj" />
   </ItemGroup>
+
+
 
 </Project>

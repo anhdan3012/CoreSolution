@@ -1,4 +1,4 @@
-﻿using CoreSolution.Models.Entities;
+﻿using CoreSolution.Models.System;
 using System;
 using System.Collections.Generic;
 using System.Text;

@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 
-namespace CoreSolution.Models.Entities
+namespace CoreSolution.Models.System
 {
     public class AppUser : IdentityUser<Guid>
     {

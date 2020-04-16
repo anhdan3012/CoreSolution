@@ -1,5 +1,5 @@
-﻿using CoreSolution.Models.Entities;
-using CoreSolution.Models.Enums;
+﻿using CoreSolution.Models.Enums;
+using CoreSolution.Models.System;
 using System;
 using System.Collections.Generic;
 using System.Text;
