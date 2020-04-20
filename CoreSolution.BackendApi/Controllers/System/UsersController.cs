@@ -12,6 +12,7 @@ namespace CoreSolution.BackendApi.Controllers.System
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class UsersController : ControllerBase
     {
         private readonly IUserService _userService;
@@ -49,6 +50,13 @@ namespace CoreSolution.BackendApi.Controllers.System
                 return BadRequest("Register is unsuccessful.");
             }
             return Ok();
+        }
+         
+        [HttpGet("paging")] 
+        public async Task<IActionResult> GetAllPaging([FromQuery]UserGetAllPagingRequest request)
+        {
+            var result = await _userService.GetAllPaging(request);
+            return Ok(result);
         }
     }
 }

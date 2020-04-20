@@ -2,7 +2,7 @@
 using CoreSolution.Common.Exceptions;
 using CoreSolution.DBContext;
 using CoreSolution.Models.Shop;
-using CoreSolution.ViewModels.Catalog;
+using CoreSolution.ViewModels.Catalog; 
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;

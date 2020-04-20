@@ -31,7 +31,7 @@
                     <i class="fas fa-user fa-fw"></i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                    <a class="dropdown-item" href="user/index">@User.Identity.Name</a>
+                    <a class="dropdown-item" href="user/profile">@User.Identity.Name</a>
                     <a class="dropdown-item" href="user/changepwd">Thay đổi mật khẩu</a>
                     <div class="dropdown-divider"></div>
                     <form method="post" asp-controller="User" asp-action="Logout">
@@ -101,7 +101,7 @@
         </div>
         <div id="layoutSidenav_content">
             <main>
-                @RenderBody();
+                @RenderBody()
             </main>
             <footer class="py-4 bg-light mt-auto">
                 <div class="container-fluid">

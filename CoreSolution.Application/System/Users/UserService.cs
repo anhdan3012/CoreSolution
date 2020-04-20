@@ -1,11 +1,14 @@
 ﻿using CoreSolution.Models.System;
+using CoreSolution.ViewModels.Common;
 using CoreSolution.ViewModels.System.Users;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +19,7 @@ namespace CoreSolution.Application.System.Users
     {
         Task<string> Authencate(LoginRequest request);
         Task<bool> Register(RegisterRequest request);
+        Task<PagedResult<UserViewModel>> GetAllPaging(UserGetAllPagingRequest request);
     }
 
     public class UserService : IUserService
@@ -64,6 +68,38 @@ namespace CoreSolution.Application.System.Users
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
+
+        public async Task<PagedResult<UserViewModel>> GetAllPaging(UserGetAllPagingRequest request)
+        {
+            var query = _userManager.Users;
+            if (!string.IsNullOrEmpty(request.Keyword))
+            {
+                query = query.Where(x => x.UserName.Contains(request.Keyword));
+            }
+
+            int totalRow = await query.CountAsync();
+
+            var data = await query.Skip((request.PageIndex - 1) * request.PageSize)
+                                .Take(request.PageSize)
+                                .Select(x=> new UserViewModel()
+                                {
+                                    Id = x.Id,
+                                    UserName = x.UserName,
+                                    FirstName = x.FirstName,
+                                    LastName = x.LastName,
+                                    Dob = x.Dob,
+                                    PhoneNumber = x.PhoneNumber,
+                                    Email = x.Email
+                                }).ToListAsync();
+
+            var pagedResult = new PagedResult<UserViewModel>()
+            {
+                TotalRecord = totalRow,
+                Items = data
+            };
+
+            return pagedResult;
+        } 
 
         public async Task<bool> Register(RegisterRequest request)
         {

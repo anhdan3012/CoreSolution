@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CoreSolution.ViewModels.Common
 {
-    public class PagingRequest
+    public class PagingRequest: RequestBase
     {
         public int PageIndex { get; set; }
         public int PageSize { get; set; }
